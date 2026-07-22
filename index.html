@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BlockCert — Certificate Verification Ledger</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>BlockCert</h1>
+    <p>Certificate Verification Ledger</p>
+    <div id="wallet-section">
+      <!-- Wallet connect button(s) render here -->
+    </div>
+  </header>
+
+  <main>
+    <section id="dashboard">
+      <h2>Dashboard</h2>
+      <p>Total Certificates: <span id="total-certs">0</span></p>
+      <p>Latest Certificate: <span id="latest-cert">-</span></p>
+      <p>Latest Transaction: <span id="latest-tx">-</span></p>
+    </section>
+
+    <section id="add-certificate">
+      <h2>Add Certificate</h2>
+      <p id="login-notice"><em>Connect your wallet above to create a certificate.</em></p>
+      <form id="cert-form">
+        <input type="text" id="certificateName" placeholder="Certificate Name" required disabled />
+        <input type="text" id="recipient" placeholder="Recipient Name" required disabled />
+        <input type="text" id="organization" placeholder="Issuing Organization" required disabled />
+        <input type="date" id="dateIssued" required disabled />
+        <button type="submit" disabled>Create Transaction</button>
+      </form>
+    </section>
+
+    <section id="ledger">
+      <h2>Certificate Ledger</h2>
+      <table id="ledger-table">
+        <thead>
+          <tr>
+            <th>ID</th><th>Certificate</th><th>Recipient</th>
+            <th>Organization</th><th>Date</th><th>Hash</th>
+          </tr>
+        </thead>
+        <tbody><!-- rows injected by app.js --></tbody>
+      </table>
+    </section>
+
+    <section id="transaction-details" hidden>
+      <h2>Transaction Details</h2>
+      <div id="tx-detail-content"></div>
+    </section>
+  </main>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
